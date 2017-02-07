@@ -1,0 +1,273 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="gdg-icons.html">
+
+<dom-module id="gdg-app">
+  <template>
+    <style>
+      :host {
+        --app-primary-color: #4285f4;
+        --app-secondary-color: black;
+        display: block;
+      }
+
+      app-header {
+        height: 482px;
+        color: #fff;
+        background-color: #171f2f;
+        --app-header-background-front-layer: {
+          background-image: url(../images/cover.jpg);
+          background-position: center -15px;
+          background-size: auto 100%;
+          background-repeat: no-repeat;
+        };
+      }
+
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+
+      .content {
+        display: flex;
+        flex: 1;
+        flex-basis: 0.000000001px;
+        flex-direction: column;
+        min-height: calc(100vh - 64px);
+      }
+
+      iron-pages{
+        display: flex;
+        flex: 1;      
+      }
+
+      footer {
+        margin-top: 36px;
+        height: 64px;
+        line-height: 64px;
+        background-color: #f6911e;
+        font-size: 14px;
+        color: white;
+      }    
+
+      footer span{
+        font-size: 0.96em;
+        font-weight: 300;
+        opacity: 0.85;
+        margin: 0 36px;
+      }
+      
+      footer a{
+        text-decoration: none;
+        color: white;
+      }
+      footer a:hover{
+        font-weight: 400;
+      }
+      .header-test{
+        height: 354px;
+      }
+
+      app-toolbar img{
+        height: 22px;
+      }
+
+      app-toolbar paper-button{
+        display: none;
+      }
+
+      .header-nav{
+        width: 100%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #d7d7d7;
+      }
+      paper-tabs{
+        margin: 0 24px;
+        width: 300px;
+        background: white;
+        color: black;
+        height: 64px;
+        --paper-tabs-selection-bar-color: #ee6534;
+      }
+
+      paper-tab a{
+        font-weight: 400;
+        font-size: 0.97em;        
+        color: #6d6d6d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;        
+      }
+
+      paper-tab a:focus{
+        outline: none;
+      }
+
+      paper-tab.iron-selected a{
+        color: #414141;
+        font-weight: 500;
+      }
+
+      paper-button{
+        padding: 0.7em 1em;
+        margin: 0 24px;
+        height: 48px;
+        background: #ee6534;
+        width: 180px;
+      }
+
+      .paper-button-link{
+        text-decoration: none;
+        color: white;
+      }
+
+      @media screen and (max-width: 860px){
+        .header-test{
+          height: 222px;
+        }        
+        app-header {
+          height: 350px;
+          --app-header-background-front-layer: {
+              background-image: url(../images/cover.jpg);
+              background-position: center 25px;
+              background-size: auto 75%;
+              background-repeat: no-repeat;
+          }
+        }
+        app-toolbar{
+          padding: 0 8px 0 16px;
+        }
+        app-toolbar paper-button{
+          background: transparent;
+          font-size: 0.85em;
+          width: auto;
+          padding: 0.7em 0.57em;
+          margin: 0;
+          display: block;
+          font-weight: 500;
+        }
+
+        app-toolbar img{
+          height: 16px;
+        }
+
+        .header-nav paper-button{
+          display: none;
+        }
+        footer{
+          text-align: center;
+        }
+        footer span{
+          margin: 0 24px;
+        }
+
+      }
+    </style>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+      <!-- Main content -->
+      <app-header-layout >
+
+        <app-header condenses fixed effects="resize-title blend-background" >
+          <app-toolbar>
+              <div main-title>
+                <img src="https://events.withgoogle.com/media/4050e447/img/microsite-wsx/logos/tensor-flow-light.png">
+              </div>          
+              <paper-button>Get Ticket</paper-button>    
+          </app-toolbar>
+          <div class="header-test"></div>
+          <div class="header-nav">
+            <paper-tabs noink="false" sticky selected="[[page]]" attr-for-selected="name" > 
+              <paper-tab link name="home">
+                <a href="/home" class="link" tabindex="-1">Home</a>
+              </paper-tab>
+              <paper-tab link name="agenda">
+                <a href="/agenda" class="link" tabindex="-1">Agenda</a>
+              </paper-tab>
+              <paper-tab link name="communityguidelines">
+                <a href="/communityguidelines" class="link" tabindex="-1">Community Guidelines</a>
+              </paper-tab>                                    
+            </paper-tabs>        
+            <a target="_blank" class="paper-button-link" href="http://tfxkl2017.peatix.com" tabindex="-1"><paper-button raised>Get Ticket</paper-button></a>
+          </div>      
+        </app-header>
+
+        <div class="content">
+          <iron-pages
+              selected="[[page]]"
+              attr-for-selected="name"
+              fallback-selection="home"
+              role="main">
+            <gdg-home name="home"></gdg-home>
+            <gdg-agenda name="agenda"></gdg-agenda>
+            <gdg-communityguidelines name="communityguidelines"></gdg-communityguidelines>
+          </iron-pages>
+          <footer><span>&copy; 2017 Based on <a href="https://github.com/limhenry/samarium">Project Samarium</a> by <a href="https://limhenry.xyz">Henry Lim</a></span></footer>
+        </div>
+
+      </app-header-layout>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'gdg-app',
+
+      properties: {
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged',
+        },
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)',
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'home';
+      },
+
+      _pageChanged: function(page) {
+        // Load page import on demand. Show 404 page if fails
+        var resolvedPageUrl = this.resolveUrl('gdg-' + page + '.html');
+        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+      },
+
+      _showPage404: function() {
+        this.page = 'home';
+      },
+    });
+  </script>
+</dom-module>

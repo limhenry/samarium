@@ -1,0 +1,188 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="gdg-icons.html">
+
+
+<dom-module id="gdg-home">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+        margin: 0 auto;
+        width: 100%;
+        color: #414141;
+      }
+      .intro{
+        width: 90%;
+        margin: 48px auto 68px auto;
+        text-align: center;
+        max-width: 860px;
+      }
+      .intro h3{
+        margin: 2em auto;
+        font-size: 1.3em;
+        font-weight: 500;
+      }
+      .intro h2{
+        margin: 1.7em auto;
+        font-size: 1.7em;
+        line-height: 1.2em;
+        max-width: 760px;
+      }
+      .intro p{
+        font-weight: 300;
+        line-height: 1.7em;
+        font-size: 1.1em;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      google-map{
+        height: 400px;
+      }
+      .info{
+        width: 95%;
+        max-width: 980px;
+        margin: 56px auto;
+        display: flex;
+        justify-content: space-around;
+      }
+      .info .container{
+        width: 50%;
+      }
+      .info .container:first-child{
+        margin-right: 16px;
+      }
+      .info iron-icon{
+        height: 22px;
+        left: 0;
+        position: absolute;
+        top: 2px;
+        vertical-align: middle;
+        width: 22px;
+        color: #525252;
+      }
+      .info p{
+        margin-bottom: 16px;
+        padding-left: 34px;
+        position: relative;
+        font-size: 1.15em;
+        font-weight: 300;
+      }
+      .info h2{
+        margin-top: 0;
+        font-weight: 300;
+        font-size: 2.3em;
+      }
+
+      .sponsor{
+        margin-top: 72px;
+        text-align: center;
+      }
+      .sponsor #gdgkl{
+        margin: -24px 0;
+        height: 150px;
+      }
+      .sponsor #google{
+        height: 100px;
+        max-width: 90%;
+      }
+      .sponsor #itrain{
+        height: 100px;
+        margin-right: 64px;
+      }
+      .sponsor h2{
+        margin: 12px 0 8px 0;
+        font-weight: 300;
+        font-size: 1.6em;
+      }
+
+      @media screen and (max-width: 860px){
+        .intro h2{
+          font-size: 1.4em;
+          line-height: 1.5em;
+        }
+        .intro h3{
+          font-size: 1.15em;
+        }
+        .intro p{
+          font-size: 1em;
+        }
+        .info{
+          flex-direction: column;
+        }
+        .info .container{
+          margin: 12px auto;
+          width: 100%;
+        }
+        google-map{
+          height: 300px;
+        }
+        .sponsor #gdgkl{
+          margin: -8px 0 -16px 0;
+          height: auto;
+          width: 90%;
+        }
+        .sponsor #google{
+          display: block;
+          height: auto;
+          width: 70%;
+          margin: -4px auto -12px auto;
+        }
+        .sponsor #itrain{
+          display: block;
+          height: auto;
+          width: 35%;
+          margin: -8px auto;
+        }      
+      .sponsor h2{
+        margin: 12px 0;
+      }          
+      }
+    </style>
+
+    <div class="intro">
+      <h3>18th February, 2017 • Kuala Lumpur, Malaysia</h3>       
+      <h2>TensorFlow Dev Summit 2017 will be EXTENDED to our beloved city Kuala Lumpur!</h2>
+      <p>Let's watch what's the fuss about TensorFlow, catch industry experts and users to give talks and codelabs about TensorFlow.</p>
+    </div>
+
+    <div class="info">
+      <div class="container">
+        <h2>When and Where</h2>
+        <p><iron-icon icon="gdg-icons:access-time"></iron-icon>Sat 18 Feb, 2017</p>
+        <p><iron-icon icon="gdg-icons:location-on"></iron-icon>iTrain (M) Sdn Bhd, C-19-8, KL Trillion, 338 Jalan Tun Razak, 50400 Kuala Lumpur</p>
+      </div>
+      <div class="container">
+        <google-map zoom="16" disable-zoom latitude="3.163721" longitude="101.7179611" fit-to-markers>
+          <google-map-marker latitude="3.163721" longitude="101.7179611"></google-map-marker>
+        </google-map>
+      </div>
+    </div>
+
+    <div class="sponsor">
+      <h2>Organized by</h2>
+      <img src="https://gcpnextkl2016.appspot.com/data/images/gdgkl.png" id="gdgkl">
+      <h2>Made possible with</h2>
+      <img src="https://gcpnextkl2016.appspot.com/data/images/big_g.png" id="google">
+      <img src="../images/itrain.jpg" id="itrain">
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'gdg-home',
+    });
+  </script>
+</dom-module>
