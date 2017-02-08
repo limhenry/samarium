@@ -16,17 +16,127 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles">
       :host {
         display: block;
-        padding: 10px;
-        color: #414141;
-        font-size: 2em;
-        text-align: center;
         width: 100%;
-        padding-top: 48px;
-        font-weight: 400;
       }
+
+      .content{
+        margin: 12px 32px;
+        max-width: 860px;
+      }
+      .content h2{
+        margin: 36px 0 24px 16px;
+        color: #757575;
+        font-weight: 400;
+        font-size: 2em;
+      }
+
+      .content .item{
+        padding: 16px 0;
+        display: flex;
+        border-bottom: 2px solid #eee;
+      }
+      .content .item:last-child{
+        border-bottom: none;
+      }
+      .content .item .time{
+        width: 180px;
+        margin: 0 36px 0 12px;
+        font-size: 56px;
+        font-weight: 300;
+        letter-spacing: -2px;
+        color: #E65100;
+      }
+      .content .item .time span{
+        margin-left: 8px;
+        font-size: 16px;
+        letter-spacing: 0;
+      }
+      .content .item .detail{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;        
+      }
+      .content .item .title{
+        margin: 0 0 4px 0;
+        font-size: 1.3em;
+        color: #424242;
+      }
+      .content .item .info{
+        margin-left: 2px;
+        font-size: 14px;
+        color: #777;
+        font-weight: 400;
+      }    
+      @media screen and (max-width: 860px){
+        .content{
+          margin: 0 16px;
+        }
+        .content h2{
+          font-size: 1.8em;
+        }
+        .content .item .time{
+          font-size: 32px;
+          width: 80px;
+          min-width: 80px;
+        }
+        .content .item .time span{
+          margin-left: 6px;
+        }
+      }  
     </style>
 
-    Coming Soon
+    <div class="content">
+      <h2>Saturday, 18 February 2017</h2>
+      <div class="item">
+        <div class="time">12:00<span>PM</span></div>
+        <div class="detail">
+          <div class="title">Registration</div>
+          <div class="info"></div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="time">1:00<span>PM</span></div>
+        <div class="detail">
+          <div class="title">Introduction (GDG)</div>
+          <div class="info">JT Liew</div>
+        </div>
+      </div>      
+      <div class="item">
+        <div class="time">1:10<span>PM</span></div>
+        <div class="detail">
+          <div class="title">Opening Keynote</div>
+          <div class="info"></div>
+        </div>
+      </div>      
+      <div class="item">
+        <div class="time">2:20<span>PM</span></div>
+        <div class="detail">
+          <div class="title">TBA</div>
+          <div class="info">TBA</div>
+        </div>
+      </div>      
+      <div class="item">
+        <div class="time">3:30<span>PM</span></div>
+        <div class="detail">
+          <div class="title">Implementation of Keras to Tensorflow</div>
+          <div class="info">Anonoz Chong</div>
+        </div>
+      </div>      
+      <div class="item">
+        <div class="time">4:20<span>PM</span></div>
+        <div class="detail">
+          <div class="title">TensorFlow Codelab</div>
+          <div class="info">Christine Tee</div>
+        </div>
+      </div>      
+      <div class="item">
+        <div class="time">5:00<span>PM</span></div>
+        <div class="detail">
+          <div class="title">Photo session and closing</div>
+          <div class="info"></div>
+        </div>
+      </div>                                                
+    </div>
   </template>
 
   <script>

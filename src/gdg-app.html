@@ -22,6 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/app-layout/app-scrollpos-control/app-scrollpos-control.html">
 <link rel="import" href="gdg-icons.html">
 
 <dom-module id="gdg-app">
@@ -63,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       footer {
-        margin-top: 36px;
+        margin-top: 64px;
         height: 64px;
         line-height: 64px;
         background-color: #f6911e;
@@ -72,7 +73,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }    
 
       footer span{
-        font-size: 0.96em;
+        font-size: 0.97em;
         font-weight: 300;
         opacity: 0.85;
         margin: 0 36px;
@@ -103,6 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: inherit;
         border-bottom: 1px solid #d7d7d7;
       }
       paper-tabs{
@@ -196,6 +198,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
+        <app-scrollpos-control selected="{{page}}" reset></app-scrollpos-control>
+
       <!-- Main content -->
       <app-header-layout >
 
@@ -204,7 +208,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <div main-title>
                 <img src="https://events.withgoogle.com/media/4050e447/img/microsite-wsx/logos/tensor-flow-light.png">
               </div>          
-              <paper-button>Get Ticket</paper-button>    
+              <a target="_blank" class="paper-button-link" href="http://tfxkl2017.peatix.com" tabindex="-1"><paper-button>Get Ticket</paper-button></a>
           </app-toolbar>
           <div class="header-test"></div>
           <div class="header-nav">
@@ -268,6 +272,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _showPage404: function() {
         this.page = 'home';
       },
+
     });
   </script>
 </dom-module>
