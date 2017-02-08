@@ -9,8 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
@@ -18,19 +16,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/app-layout/app-scrollpos-control/app-scrollpos-control.html">
 <link rel="import" href="gdg-icons.html">
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="gdg-app">
   <template>
-    <style>
+    <style include="shared-styles">
       :host {
-        --app-primary-color: #4285f4;
-        --app-secondary-color: black;
         display: block;
       }
 
@@ -47,7 +42,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       app-header paper-icon-button {
-        --paper-icon-button-ink-color: white;
+        --paper-icon-button-ink-color: var(--text-primary-color);
       }
 
       .content {
@@ -67,9 +62,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-top: 64px;
         height: 64px;
         line-height: 64px;
-        background-color: #f6911e;
+        background-color: var(--footer-color);
         font-size: 14px;
-        color: white;
+        color: var(--text-primary-color);
       }    
 
       footer span{
@@ -81,7 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
       footer a{
         text-decoration: none;
-        color: white;
+        color: var(--text-primary-color);
       }
       footer a:hover{
         font-weight: 400;
@@ -100,26 +95,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .header-nav{
         width: 100%;
-        background: white;
+        background: var(--text-primary-color);
         display: flex;
         align-items: center;
         justify-content: space-between;
         position: inherit;
-        border-bottom: 1px solid #d7d7d7;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: var(--divider-color);
       }
+
       paper-tabs{
         margin: 0 24px;
         width: 300px;
-        background: white;
-        color: black;
+        background: var(--text-primary-color);
+        color: var(--primary-text-color);
         height: 64px;
-        --paper-tabs-selection-bar-color: #ee6534;
+        --paper-tabs-selection-bar-color: var(--default-primary-color);
       }
 
       paper-tab a{
         font-weight: 400;
         font-size: 0.97em;        
-        color: #6d6d6d;
+        color: var(--secondary-text-color);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -139,13 +137,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 0.7em 1em;
         margin: 0 24px;
         height: 48px;
-        background: #ee6534;
+        background: var(--default-primary-color);
         width: 180px;
       }
 
       .paper-button-link{
         text-decoration: none;
-        color: white;
+        color: var(--text-primary-color);
       }
 
       @media screen and (max-width: 860px){
@@ -200,9 +198,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <app-scrollpos-control selected="{{page}}" reset></app-scrollpos-control>
 
-      <!-- Main content -->
       <app-header-layout >
-
         <app-header condenses fixed effects="resize-title blend-background" >
           <app-toolbar>
               <div main-title>
@@ -239,7 +235,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </iron-pages>
           <footer><span>&copy; 2017 Based on <a href="https://github.com/limhenry/samarium">Project Samarium</a> by <a href="https://limhenry.xyz">Henry Lim</a></span></footer>
         </div>
-
       </app-header-layout>
   </template>
 
@@ -264,7 +259,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _pageChanged: function(page) {
-        // Load page import on demand. Show 404 page if fails
         var resolvedPageUrl = this.resolveUrl('gdg-' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },

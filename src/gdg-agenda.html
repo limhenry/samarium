@@ -25,7 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
       .content h2{
         margin: 36px 0 24px 16px;
-        color: #757575;
+        color: var(--secondary-text-color);
         font-weight: 400;
         font-size: 2em;
       }
@@ -33,7 +33,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .content .item{
         padding: 16px 0;
         display: flex;
-        border-bottom: 2px solid #eee;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: var(--divider-color);
       }
       .content .item:last-child{
         border-bottom: none;
@@ -44,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-size: 56px;
         font-weight: 300;
         letter-spacing: -2px;
-        color: #E65100;
+        color: var(--default-primary-color);
       }
       .content .item .time span{
         margin-left: 8px;
@@ -59,12 +61,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .content .item .title{
         margin: 0 0 4px 0;
         font-size: 1.3em;
-        color: #424242;
+        color: var(--primary-text-color);
       }
       .content .item .info{
         margin-left: 2px;
         font-size: 14px;
-        color: #777;
+        color: var(--secondary-text-color);
         font-weight: 400;
       }    
       @media screen and (max-width: 860px){
@@ -118,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="item">
         <div class="time">3:30<span>PM</span></div>
         <div class="detail">
-          <div class="title">Implementation of Keras to Tensorflow</div>
+          <div class="title">TensorFlow is hard, Keras is not</div>
           <div class="info">Anonoz Chong</div>
         </div>
       </div>      
